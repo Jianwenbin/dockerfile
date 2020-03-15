@@ -1,0 +1,10 @@
+
+driver = mysql
+
+connect = host={{ MYSQL_HOST }} port={{ MYSQL_PORT }} dbname={{ MYSQL_DB }} user={{ MYSQL_USER }} password={{ MYSQL_PASSWORD }}
+
+default_pass_scheme = SHA512-CRYPT
+
+password_query = SELECT email as user, password FROM virtual_users WHERE email='%u'
+
+#user_query = SELECT '/var/vmail/%d/%n' as home, 'maildir:/var/vmail/%d/%n' as mail, 'vmail' AS uid, 'postdrop' AS gid, concat('dirsize:storage=', quota) AS quota FROM virtual_users WHERE username = '%u' 
