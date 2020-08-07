@@ -9,5 +9,5 @@ RUN docker-php-ext-install gd mysqli pdo pdo_mysql
 
 RUN a2enmod rewrite
 
-#RUN usermod -u 1000 www-data
+RUN usermod -u 1000 www-data
 
