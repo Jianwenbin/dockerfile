@@ -183,12 +183,15 @@ elif [[ "${MASTER}" == "true" ]]; then
       cat << EOF > ${CONF_FILE}
 [mysqld]
 server-id = ${RAND}
-log-bin = mysql-bin
-binlog_format = MIXED
+character_set_server=utf8
+log-bin=master-bin
+log-bin-index=master-bin.index 
+expire_logs_days = 5
+binlog_format = row
+binlog_row_image = minima
 binlog-ignore-db = mysql
 binlog-ignore-db = information_schema
 binlog-ignore-db = performance_schema
-expire_logs_days = 7
 EOF
 
       StartMySQL;

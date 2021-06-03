@@ -1,8 +1,12 @@
 #!/bin/sh
 
 if [[ "${SLAVE}" == "true" ]]; then
+	 # 备份等待同步
+	 if [ -d "/tmp/ready" ];then
+	    exit 0;
+	 fi
 	 if [[ "$MYSQL_ROOT_PASSWORD" == "" ]]; then
-     MYSQL_ROOT_PASSWORD=123456
+		MYSQL_ROOT_PASSWORD=123456
 	 fi
    
 	 array=$(mysql -uroot -p${MYSQL_ROOT_PASSWORD}  -e "show slave status\G"|grep "Running" |awk '{print $2}')

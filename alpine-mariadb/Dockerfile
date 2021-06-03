@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER wurui  <609028727@qq.com> 
+MAINTAINER wb_jian <wb_jian@qq.com> 
 
 RUN apk add --update tzdata mysql mysql-client && rm -f /var/cache/apk/*
 
