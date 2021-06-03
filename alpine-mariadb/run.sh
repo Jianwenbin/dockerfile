@@ -183,7 +183,6 @@ elif [[ "${MASTER}" == "true" ]]; then
       cat << EOF > ${CONF_FILE}
 [mysqld]
 server-id = ${RAND}
-character_set_server=utf8
 log-bin=master-bin
 log-bin-index=master-bin.index 
 expire_logs_days = 5
